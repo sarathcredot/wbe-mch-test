@@ -11,7 +11,4 @@ This is a full-stack project built with:
 
 ### 1. Clone the repo
 
-```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
-```
+https://github.com/sarathcredot/wbe-mch-test.git
