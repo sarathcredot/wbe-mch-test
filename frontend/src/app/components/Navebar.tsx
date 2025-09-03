@@ -229,12 +229,7 @@ export default function Navbar() {
                     {dropdownOpenMob && (
                         <div className="absolute right-0 top-[50px] w-40 bg-white text-black border rounded-lg shadow-lg py-2 z-50">
 
-                            <Link
-                                href="/login"
-                                className="block px-4 py-2 text-sm hover:bg-gray-100"
-                            >
-                                Login
-                            </Link>
+
 
 
                             <Link
@@ -244,12 +239,29 @@ export default function Navbar() {
                                 My Account
                             </Link>
 
-                            <button
-                                onClick={() => signOut()}
-                                className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
-                            >
-                                Logout
-                            </button>
+                            {
+
+                                session?.status === "authenticated" ?
+                                    <button
+                                        onClick={() => signOut()}
+                                        className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100"
+                                    >
+                                        Logout
+                                    </button>
+
+                                    :
+
+                                    <Link
+                                        href="/login"
+                                        className="block px-4 py-2 text-sm hover:bg-gray-100"
+                                    >
+                                        Login
+                                    </Link>
+
+
+                            }
+
+
                         </div>
                     )}
 

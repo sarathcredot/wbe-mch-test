@@ -65,8 +65,10 @@ function TopProducts({ title }: { title: string }) {
   const { mutateAsync: addtoCart } = useAddToCart()
 
 
-  // slider settings
-  // const settings = {
+
+
+
+
   //   dots: false,
   //   infinite: true,
   //   speed: 600,
@@ -85,11 +87,60 @@ function TopProducts({ title }: { title: string }) {
   //       settings: { slidesToShow: 2 },
   //     },
   //     {
-  //       breakpoint: 640,
-  //       settings: { slidesToShow: 1 },
+  //       breakpoint: 768, // tablets & smaller
+  //       settings: { slidesToShow: 1, arrows: false, dots: true },
   //     },
   //   ],
   // };
+
+
+  // const settings = {
+  //   dots: false,
+  //   infinite: true,
+  //   speed: 600,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 1,
+  //   arrows: true,
+  //   nextArrow: <NextArrow />,
+  //   prevArrow: <PrevArrow />,
+  //   responsive: [
+  //     {
+  //       breakpoint: 1280,
+  //       settings: {
+  //         slidesToShow: 4,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 2,
+  //         slidesToScroll: 1,
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 768,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //         arrows: true,
+  //         centerMode: true,
+  //         centerPadding: '20px',
+  //       },
+  //     },
+  //     {
+  //       breakpoint: 480,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         slidesToScroll: 1,
+  //         arrows: false,
+  //         dots: true,
+  //         centerMode: false,
+  //       },
+  //     },
+  //   ],
+  // };
+
 
   const settings = {
     dots: false,
@@ -105,22 +156,24 @@ function TopProducts({ title }: { title: string }) {
         breakpoint: 1280, // <1280px
         settings: {
           slidesToShow: 3,
-          // arrows: true,
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 1024, // <1024px
         settings: {
           slidesToShow: 2,
-          // arrows: true,
+          slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 640, // <640px (mobile)
+        breakpoint: 768, // <768px
         settings: {
           slidesToShow: 1,
-          arrows: true, // usually hide arrows on mobile
-          // dots: true, // better UX for swipe
+          slidesToScroll: 1,
+          arrows: false,
+          dots: true,
+          centerMode: false,
         },
       },
     ],
@@ -183,7 +236,9 @@ function TopProducts({ title }: { title: string }) {
 
 
               <div key={index} className="px-2">
-                <div className="relative w-full max-w-[350px] bg-white h-[450px] border border-black rounded-2xl p-[10px] mx-auto">
+                {/* <div className="relative w-full max-w-[350px] bg-white h-[450px] border border-black rounded-2xl p-[10px] mx-auto"> */}
+                <div className="relative w-full sm:max-w-[350px] bg-white h-[450px] border border-black rounded-2xl p-[10px] mx-auto">
+
                   {/* Offer Tag */}
                   <div className="absolute top-[20px] -rotate-45 bg-yellow-500 text-black w-[70px] sm:w-[80px] text-xs sm:text-sm text-center font-bold shadow-md">
                     20% OFF
@@ -260,4 +315,15 @@ function TopProducts({ title }: { title: string }) {
 }
 
 export default TopProducts;
+
+
+
+
+
+
+
+
+
+
+
 

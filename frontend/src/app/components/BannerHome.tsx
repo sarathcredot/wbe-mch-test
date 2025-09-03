@@ -36,7 +36,7 @@ function BannerHome() {
                         </p>
 
                         {/* Button */}
-                        <Button classname="w-[180px] sm:w-[200px] md:w-[230px] h-[45px] md:h-[50px] rounded-2xl bg-black text-white mt-6 hover:bg-yellow-400 hover:text-black transition-colors duration-500 ease-in-out">
+                        <Button classname="w-[200px] sm:w-[200px] md:w-[230px] h-[45px] md:h-[50px] rounded-2xl bg-black text-white mt-6 hover:bg-yellow-400 hover:text-black transition-colors duration-500 ease-in-out">
                             Check More Products
                             <ShoppingBag className="inline-block ml-2" size={18} />
                         </Button>
