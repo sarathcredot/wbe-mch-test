@@ -11,13 +11,19 @@ import Button from "@/app/components/UI/Button";
 import TopProducts from "@/app/components/TopProducts";
 import { useGetProductsById } from "@/services/product.service"
 import { useOrderProduct } from "@/services/order.service"
+import { useAddToCart } from "@/services/cart.service"
 import toast from "react-hot-toast";
-
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '@/store/store';
+import { setCartAmmount } from "@/store/slice/cartSlice"
 function ProductDetailPage({ params }: { params: any }) {
 
     const { productId }: any = React.use(params);
+    const dispatch = useDispatch<AppDispatch>();
+
 
     const { mutateAsync: orderProduct } = useOrderProduct();
+    const { mutateAsync: addtoCart } = useAddToCart()
 
 
 
@@ -39,6 +45,25 @@ function ProductDetailPage({ params }: { params: any }) {
         }
 
     }
+
+    const handleAddToCart = async () => {
+
+        try {
+
+
+            const result = await addtoCart(productId)
+            console.log(result?.data?.data?.totalAmount)
+            dispatch(setCartAmmount(result?.data?.data?.totalAmount))
+            toast.success("Cart Updated successfully!")
+
+
+        } catch (error: any) {
+
+            toast.error(error?.response?.data.message)
+
+        }
+    }
+
 
 
 
@@ -88,7 +113,7 @@ function ProductDetailPage({ params }: { params: any }) {
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-5">
-                        <Button classname="w-full sm:w-[150px] h-[40px] rounded-2xl bg-black text-white mt-5 hover:bg-yellow-400 hover:text-black transition-colors duration-500 ease-in-out">
+                        <Button onClick={handleAddToCart} classname="w-full sm:w-[150px] h-[40px] rounded-2xl bg-black text-white mt-5 hover:bg-yellow-400 hover:text-black transition-colors duration-500 ease-in-out">
                             Add to Cart
                             <ShoppingCart className="inline-block ml-2" size={18} />
                         </Button>

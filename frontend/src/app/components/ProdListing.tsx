@@ -193,7 +193,7 @@ function ProdListing() {
                                                     <h1 className="line-through"> {`${item?.price}.00AED`} </h1>
                                                 </div>
 
-                                                <Button classname="w-[150px] h-[40px] rounded-2xl bg-black text-white ml-[20px] hover:bg-yellow-400 hover:text-black transition-colors duration-500 ease-in-out">
+                                                <Button onClick={() => { handleAddToCart(item?._id) }} classname="w-[150px] h-[40px] rounded-2xl bg-black text-white ml-[20px] hover:bg-yellow-400 hover:text-black transition-colors duration-500 ease-in-out">
                                                     Add to cart
                                                     <ShoppingCart
                                                         className="inline-block ml-2"

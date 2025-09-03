@@ -49,7 +49,7 @@ function Page() {
 
                                 orders?.map((item: any, index: any) => (
 
-                                    <div key={index} className="w-full md:w-[800px] h-auto md:h-[220px] border border-black rounded-2xl flex flex-col md:flex-row">
+                                    <div key={index} className="w-full mb-24 lg:mb-5 md:w-[800px] h-auto md:h-[220px] border border-black rounded-2xl flex flex-col md:flex-row">
 
                                         {/* Image */}
                                         <div className="w-full md:w-[20%] h-[200px] md:h-full p-5 flex justify-center items-center">
